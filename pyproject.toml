@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "openpix"
+version = "0.1.0"
+description = ""
+authors = ["João Prado <joaopedro0128@hotmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+black = "^22.6.0"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.2"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length=88
+target-version=['py310']
