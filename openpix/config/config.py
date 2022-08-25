@@ -15,7 +15,7 @@ class Config:
         self.__tracking_id = "platform:" + platform.python_version()
         self.__tracking_id += ",type:SDK" + self.__version + ",so;"
 
-    __api_base_url = "https://api.openpix.com.br/"
+    __api_base_url = "https://api.openpix.com.br"
     __mime_json = "application/json"
     __mime_form = "application/x-www-form-urlencoded"
 

@@ -7,6 +7,7 @@ authors = ["João Prado <joaopedro0128@hotmail.com>"]
 [tool.poetry.dependencies]
 python = "^3.10"
 black = "^22.6.0"
+requests = "^2.28.1"
 
 [tool.poetry.dev-dependencies]
 pytest = "^5.2"

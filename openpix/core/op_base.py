@@ -12,9 +12,10 @@ class OPBase:
         self.__config = Config()
 
     def __check_request_options(self, request_options):
-        if request_options is not None and not isinstance(request_options, RequestOptions):
-            raise ValueError(
-                "Param request_options must be a RequestOptions Object")
+        if request_options is not None and not isinstance(
+            request_options, RequestOptions
+        ):
+            raise ValueError("Param request_options must be a RequestOptions Object")
         if request_options is None:
             request_options = self.__request_options
 
@@ -32,14 +33,15 @@ class OPBase:
             headers.update(extra_headers)
 
         return headers
-    
+
     def _get(self, uri, filters=None, request_options=None):
         if filters is not None and not isinstance(filters, dict):
             raise ValueError("Filters must be a Dictionary")
 
         request_options = self.__check_request_options(request_options)
         headers = self.__check_headers(
-            request_options, {"Content-type": self.__config.mime_json})
+            request_options, {"Content-type": self.__config.mime_json}
+        )
 
         return self.__http_client.get(
             url=self.__config.api_base_url + uri,
@@ -55,7 +57,8 @@ class OPBase:
 
         request_options = self.__check_request_options(request_options)
         headers = self.__check_headers(
-            request_options, {"Content-type": self.__config.mime_json})
+            request_options, {"Content-type": self.__config.mime_json}
+        )
 
         return self.__http_client.post(
             url=self.__config.api_base_url + uri,
@@ -72,7 +75,8 @@ class OPBase:
 
         request_options = self.__check_request_options(request_options)
         headers = self.__check_headers(
-            request_options, {"Content-type": self.__config.mime_json})
+            request_options, {"Content-type": self.__config.mime_json}
+        )
 
         return self.__http_client.put(
             url=self.__config.api_base_url + uri,

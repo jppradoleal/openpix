@@ -57,10 +57,12 @@ class RequestOptions:  # pylint: disable=too-many-instance-attributes
         """
         Sets the attribute values of headers
         """
-        headers = {"Authorization": "Bearer " + self.__access_token,
-                   "x-tracking-id": self.__config.tracking_id,
-                   "User-Agent": self.__config.user_agent,
-                   "Accept": self.__config.mime_json}
+        headers = {
+            "Authorization": self.__access_token,
+            "x-tracking-id": self.__config.tracking_id,
+            "User-Agent": self.__config.user_agent,
+            "Accept": self.__config.mime_json,
+        }
 
         if self.__custom_headers is not None:
             headers.update(self.__custom_headers)

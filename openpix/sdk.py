@@ -1,5 +1,6 @@
 from openpix.core import HttpClient
 from openpix.config import RequestOptions
+from openpix.resources import Charge
 
 
 class SDK:
@@ -30,3 +31,9 @@ class SDK:
             self.request_options = RequestOptions()
 
         self.request_options.access_token = access_token
+
+    def charge(self, request_options=None):
+        return Charge(
+            request_options is not None and request_options or self.request_options,
+            self.http_client,
+        )
