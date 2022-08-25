@@ -3,19 +3,21 @@ from typing import List, Dict, Optional
 from openpix.core.utils import dataclass_to_json_dict
 
 
-@dataclass
-class CustomerObject:
-    name: Optional[str]
-    email: Optional[str]
-    phone: Optional[str]
-    taxID: Optional[str]
-
+class JsonDict:
     def to_json_dict(self):
         return dataclass_to_json_dict(self)
 
 
 @dataclass
-class ChargeObject:
+class CustomerObject(JsonDict):
+    name: Optional[str]
+    email: Optional[str]
+    phone: Optional[str]
+    taxID: Optional[str]
+
+
+@dataclass
+class ChargeObject(JsonDict):
     correlationID: str
     value: int
     comment: Optional[str] = None
@@ -24,5 +26,9 @@ class ChargeObject:
     customer: Optional[CustomerObject] = None
     additionalInfo: Optional[List[Dict]] = None
 
-    def to_json_dict(self):
-        return dataclass_to_json_dict(self)
+
+@dataclass
+class RefundObject(JsonDict):
+    value: int
+    transactionEndToEndId: str
+    correlationID: str

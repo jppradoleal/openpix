@@ -1,6 +1,6 @@
 from openpix.core import HttpClient
 from openpix.config import RequestOptions
-from openpix.resources import Charge
+from openpix.resources import Charge, Refund
 
 
 class SDK:
@@ -13,7 +13,7 @@ class SDK:
         """Construct ur SDK Object to have access to all APIs modules.
         Args:
             [Click here for more info](https://developers.openpix.com.br/docs/apis/api-getting-started/#criando-uma-nova-chave-de-apiplugin)
-            http_client (openpix.http.http_client, optional): An implementation of
+            http_client (openpix.core.http_client, optional): An implementation of
             HttpClient can be pass to be used to make the REST calls. Defaults to None.
             request_options (openpix.config.request_options, optional): An instance
             of RequestOptions can be pass changing or adding custom options to ur REST
@@ -34,6 +34,12 @@ class SDK:
 
     def charge(self, request_options=None):
         return Charge(
+            request_options is not None and request_options or self.request_options,
+            self.http_client,
+        )
+
+    def refund(self, request_options=None):
+        return Refund(
             request_options is not None and request_options or self.request_options,
             self.http_client,
         )
