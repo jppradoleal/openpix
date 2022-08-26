@@ -4,10 +4,4 @@ from openpix.resources.transaction import Transaction
 from openpix.resources.customer import Customer
 from openpix.resources.webhook import Webhook
 
-__all__ = (
-    "Charge",
-    "Refund",
-    "Transaction",
-    "Customer",
-    "Webhook"
-)
+__all__ = ("Charge", "Refund", "Transaction", "Customer", "Webhook")
