@@ -12,6 +12,7 @@ Typos are unavoidable, but try to reduce them by using a spellchecker. Most IDEs
 
 * Follow the [PEP 8 Style Guide](https://pep8.org/).
 * Black is your friend, run it before pushing `poetry run black .`.
+  * You may also run `pre-commit install` to automatically run black before each commit.
 
 Generally speaking, be conscious when contributing and try following the same style that the code in the SDK already has. If you have any doubts, just ask us!
 
