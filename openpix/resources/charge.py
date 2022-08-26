@@ -16,7 +16,7 @@ class Charge(OPBase):
     def create(self, charge: ChargeObject, idempotent=False, request_options=None):
         return self._post(
             "/api/openpix/v1/charge",
-            params={ "return_existing": str(idempotent).lower() },
+            params={"return_existing": str(idempotent).lower()},
             data=charge.to_json_dict(),
             request_options=request_options,
         )

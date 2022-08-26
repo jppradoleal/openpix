@@ -1,6 +1,6 @@
 from openpix.core import HttpClient
 from openpix.config import RequestOptions
-from openpix.resources import Charge, Refund, Transaction, Customer
+from openpix.resources import Charge, Refund, Transaction, Customer, Webhook
 
 
 class SDK:
@@ -52,6 +52,12 @@ class SDK:
 
     def customer(self, request_options=None):
         return Customer(
+            request_options is not None and request_options or self.request_options,
+            self.http_client,
+        )
+
+    def webhook(self, request_options=None):
+        return Webhook(
             request_options is not None and request_options or self.request_options,
             self.http_client,
         )

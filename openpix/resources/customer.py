@@ -10,7 +10,8 @@ class Customer(OPBase):
 
     def get(self, customer_id, request_options=None):
         return self._get(
-            "/api/openpix/v1/customer/" + str(customer_id), request_options=request_options
+            "/api/openpix/v1/customer/" + str(customer_id),
+            request_options=request_options,
         )
 
     def create(self, customer: CustomerObject, request_options=None):
