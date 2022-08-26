@@ -10,10 +10,11 @@ class JsonDict:
 
 @dataclass
 class CustomerObject(JsonDict):
-    name: Optional[str]
-    email: Optional[str]
-    phone: Optional[str]
-    taxID: Optional[str]
+    name: str
+    email: str
+    phone: Optional[str] = None
+    taxID: Optional[str] = None
+    correlationID: Optional[str] = None
 
 
 @dataclass
